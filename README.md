@@ -8,30 +8,21 @@ we are just concerned with a single object detection.
 Our model consists of three convolutional layers and two fully connected layers. A kernel of size 5 with stride 1 is used in 
 each of the convolutional layers and rectified linear units, ReLU, is used as activation function. A max pooling layer of filter 
 size 2 with stride 2 is employed after each of the first two convolutional layers. 
-##
-Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d (Conv2D)             (None, 32, 32, 32)        896       
-                                                                 
- conv2d_1 (Conv2D)           (None, 32, 32, 32)        9248      
-                                                                 
- max_pooling2d (MaxPooling2D  (None, 16, 16, 32)       0         
- )                                                               
-                                                                 
- conv2d_2 (Conv2D)           (None, 16, 16, 644)       186116    
-                                                                 
- max_pooling2d_1 (MaxPooling  (None, 8, 8, 644)        0         
- 2D)                                                             
-                                                                 
- dropout (Dropout)           (None, 8, 8, 644)         0         
-                                                                 
- flatten (Flatten)           (None, 41216)             0         
-                                                                 
- dense (Dense)               (None, 128)               5275776   
-                                                                 
- dense_1 (Dense)             (None, 10)                1290      
 
-## Training
+## Layers
+|        Layer       |   Output Shape      |
+| :----------------: | :----------------:  |
+| conv2d (Conv2D)    | (None, 32, 32, 32)  |
+| conv2d_1 (Conv2D)  | (None, 32, 32, 32)  |
+| max_pooling2d      | (None, 16, 16, 32)  |
+| conv2d_2           | (None, 16, 16, 644) |
+| max_pooling2d_1    | (None, 8, 8, 644)   |
+| dropout            | (None, 8, 8, 644)   |
+| flatten            | (None, 41216)       |
+| dense              | (None, 128)         |
+| dense_1            | (None, 10)          |
+
+## Training 
 We have trained the network for 50 epoch using stochastic gradient descent (SGD). For the first 30 epoch, the learning rate is 
 set to 0.000001 and after that it is reduced to 0.0000001. We have also employed a momentum of 0.9. For regularization, dropout
 (with p=0.5) is used.
