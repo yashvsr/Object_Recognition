@@ -9,6 +9,28 @@ Our model consists of three convolutional layers and two fully connected layers.
 each of the convolutional layers and rectified linear units, ReLU, is used as activation function. A max pooling layer of filter 
 size 2 with stride 2 is employed after each of the first two convolutional layers. 
 
+Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 32, 32, 32)        896       
+                                                                 
+ conv2d_1 (Conv2D)           (None, 32, 32, 32)        9248      
+                                                                 
+ max_pooling2d (MaxPooling2D  (None, 16, 16, 32)       0         
+ )                                                               
+                                                                 
+ conv2d_2 (Conv2D)           (None, 16, 16, 644)       186116    
+                                                                 
+ max_pooling2d_1 (MaxPooling  (None, 8, 8, 644)        0         
+ 2D)                                                             
+                                                                 
+ dropout (Dropout)           (None, 8, 8, 644)         0         
+                                                                 
+ flatten (Flatten)           (None, 41216)             0         
+                                                                 
+ dense (Dense)               (None, 128)               5275776   
+                                                                 
+ dense_1 (Dense)             (None, 10)                1290      
+
 ## Training
 We have trained the network for 50 epoch using stochastic gradient descent (SGD). For the first 30 epoch, the learning rate is 
 set to 0.000001 and after that it is reduced to 0.0000001. We have also employed a momentum of 0.9. For regularization, dropout
@@ -19,5 +41,3 @@ The dataset we have used here is very simple and is generated in python. Each im
 box of random size and shape and at random positions. For background the color value is set to 0 and for box it is set to 255. 
 The training dataset has 1000 of such images and the test dataset consists of 200 images. The corresponding ground truth 
 information are stored in separate file.
-
-To use the pretrained model, download the trained model from [this](https://1drv.ms/u/s!AoRMuqHDZuP8iyBdb4DMllcpqhil) link.
