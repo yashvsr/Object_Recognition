@@ -8,7 +8,7 @@ we are just concerned with a single object detection.
 Our model consists of three convolutional layers and two fully connected layers. A kernel of size 5 with stride 1 is used in 
 each of the convolutional layers and rectified linear units, ReLU, is used as activation function. A max pooling layer of filter 
 size 2 with stride 2 is employed after each of the first two convolutional layers. 
-
+##
 Layer (type)                Output Shape              Param #   
 =================================================================
  conv2d (Conv2D)             (None, 32, 32, 32)        896       
